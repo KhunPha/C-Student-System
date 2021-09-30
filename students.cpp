@@ -39,7 +39,7 @@ void addstudent(int i){
 	average[i] = total[i]/3;
 }
 void updatestudent(){
-	char tmp[5];
+	char tmp[7];
 	cout<<"\t=========Update Student===========\n";
 	cout<<"\tInput Student ID to Update: ";
 	cin>>tmp;
@@ -50,12 +50,18 @@ void updatestudent(){
 			cin.getline(id[i],5,'\n');
 			cout<<"\tInput New Students Name: ";
 			cin.getline(name[i],25,'\n');
-			cout<<"\tInput New Score English: ";
-			cin>>english[i];
-			cout<<"\tInput New Score C: ";
-			cin>>c[i];
-			cout<<"\tInput New Score Java: ";
-			cin>>java[i];
+			do{
+				cout<<"\tInput New Score English: ";
+				cin>>english[i];
+			}while(english[i]>100 || english[i]<0);
+			do{
+				cout<<"\tInput New Score C: ";
+				cin>>c[i];
+			}while(c[i]>100 || c[i]<0);
+			do{
+				cout<<"\tInputNew Score Java: ";
+				cin>>java[i];	
+			}while(java[i]>100 || java[i]<0);
 			total[i] = english[i] + c[i] + java[i];
 			average[i] = total[i]/3;
 		}
