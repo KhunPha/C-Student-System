@@ -5,7 +5,7 @@
 #include <conio.h>
 using namespace std;
 int o,i=0,countstudent,b,k;
-char id[100][5],name[100][25],project[3],a;
+char id[100][5],name[100][25],project[3],a,l;
 float english[10],c[10],java[10],total[10],average[10],tm;
 string path = "D:\\Programming Learning\\C++ Programming\\mystudent.txt";
 void menu(){
@@ -47,7 +47,7 @@ void updatestudent(){
 	cout<<"\t===============================View Students==============================\n";
 	cout<<"\tID\tName\t\tEnglish\t\tC Pro\tJava\tTotal\tAverage\n";
 		for(int i=0; i<countstudent; i++){
-			cout<<"\t"<<id[i]<<"\t"<<name[i]<<"\t"<<english[i]<<"\t\t"<<c[i]<<"\t"<<java[i]<<"\t"<<total[i]<<"\t"<<average[i]<<endl;
+		cout<<"\t"<<id[i]<<"\t"<<name[i]<<"\t"<<english[i]<<"\t\t"<<c[i]<<"\t"<<java[i]<<"\t"<<total[i]<<"\t"<<average[i]<<endl;
 		}
 	cout<<"\t==========================================================================\n";
 	cout<<"\t=========Update Student===========\n";
@@ -100,15 +100,21 @@ void updatestudent(){
 void deletestudent(){
 	char tmp[5];
 	input:
-	cout<<"\t===============================View Students==============================\n";
+	cout<<"\t=================================View Students================================\n";
 	cout<<"\tID\tName\t\tEnglish\t\tC Pro\tJava\tTotal\tAverage\n";
-		for(int k=0; k<countstudent; k++){
-			cout<<"\t"<<id[k]<<"\t"<<name[k]<<"\t"<<english[k]<<"\t\t"<<c[k]<<"\t"<<java[k]<<"\t"<<total[k]<<"\t"<<average[k]<<endl;
+	for(int i=0; i<countstudent; i++){
+		cout<<"\t"<<id[i]<<"\t"<<name[i]<<"\t"<<english[i]<<"\t\t"<<c[i]<<"\t"<<java[i]<<"\t"<<total[i]<<"\t"<<average[i]<<endl;
 		}
-	cout<<"\t==========================================================================\n";
+	cout<<"\t==============================================================================\n";
 	cout<<"\t==========Delete Student===========\n";
+	cout<<"\tPress 'Q' to exit\n";
 	cout<<"\tInput Student ID to Delete: ";
 	cin>>tmp;
+	for(int t=0; t<1; t++){
+	if(tmp=="q" || tmp=="Q"){
+		break;
+	}
+}
 	for(int i=0; i<countstudent; i++){
 		if(strcmp(tmp,id[i])==0){
 			for(int j=i; j<countstudent; j++){
