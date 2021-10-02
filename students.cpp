@@ -5,7 +5,7 @@
 #include <conio.h>
 using namespace std;
 int o,i=0,countstudent,b,k;
-char id[100][5],name[100][25],project[3],a,l;
+char id[100][5],name[100][25],project[3],a,l,ch;
 float english[10],c[10],java[10],total[10],average[10],tm;
 string path = "D:\\Programming Learning\\C++ Programming\\mystudent.txt";
 void menu(){
@@ -44,7 +44,7 @@ void addstudent(int i){
 void updatestudent(){
 	char tmp[7];
 	input:
-	cout<<"\t===============================View Students==============================\n";
+	cout<<"\n\t===============================View Students==============================\n";
 	cout<<"\tID\tName\t\tEnglish\t\tC Pro\tJava\tTotal\tAverage\n";
 		for(int i=0; i<countstudent; i++){
 		cout<<"\t"<<id[i]<<"\t"<<name[i]<<"\t"<<english[i]<<"\t\t"<<c[i]<<"\t"<<java[i]<<"\t"<<total[i]<<"\t"<<average[i]<<endl;
@@ -82,25 +82,27 @@ void updatestudent(){
 			total[i] = english[i] + c[i] + java[i];
 			average[i] = total[i]/3;
 			cout<<"\tUpdate Success.........\n";
+			
 		}
 	}
 		up:
-		cout<<"\tPress 'I' to update agian, 'Q' to exit: ";
-		cin>>a;
-		if(a=='i' || a=='I'){
-			goto input;
-		}else if(a=='q' || a=='Q'){
+		cout<<"\n\tPress enter to continue, escape to end";
+		ch=getch();
+		if(ch==27){
 			
+		}
+		else if(ch==13){
+			goto input;
 		}else{
-			cout<<"\tInvalid!\n";
 			goto up;
 		}
-	
+		
+		
 }
 void deletestudent(){
 	char tmp[5];
 	input:
-	cout<<"\t=================================View Students================================\n";
+	cout<<"\n\t=================================View Students================================\n";
 	cout<<"\tID\tName\t\tEnglish\t\tC Pro\tJava\tTotal\tAverage\n";
 	for(int i=0; i<countstudent; i++){
 		cout<<"\t"<<id[i]<<"\t"<<name[i]<<"\t"<<english[i]<<"\t\t"<<c[i]<<"\t"<<java[i]<<"\t"<<total[i]<<"\t"<<average[i]<<endl;
@@ -130,18 +132,19 @@ void deletestudent(){
 				b--;	
 			}
 		}
-		cout<<"\tDelete Success............\n";	
+		cout<<"\tDelete Success............\n";
 		up:
-		cout<<"\tPress 'I' to delete agian, 'Q' to exit: ";
-		cin>>a;
-		if(a=='i' || a=='I'){
-			goto input;
-		}else if(a=='q' || a=='Q'){
+		cout<<"\n\tPress enter to continue, escape to end";
+		ch=getch();
+		if(ch==27){
 			
-		}else{
-			cout<<"\tInvalid!\n";
-			goto up;
 		}
+		else if(ch==13){
+			goto input;
+		}else{
+			goto up;	
+		}
+		
 }
 void view(){
 	cout<<"\t===============================View Students==============================\n";
